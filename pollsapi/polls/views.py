@@ -6,7 +6,7 @@ from polls.models import Polls
 
 def poll_lists(request):
     MAX_OBJECTS = 20
-    polls = Polls.Objects.all() [:MAX_OBJECTS]
+    polls = Polls.objects.all() [:MAX_OBJECTS]
     data = {'results':list(polls.values("question","created_by__username","pub_date"))}
     return JsonResponse(data)
 
